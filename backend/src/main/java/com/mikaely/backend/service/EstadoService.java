@@ -1,16 +1,15 @@
 
 package com.mikaely.backend.service;
 
-import java.sql.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mikaely.backend.entity.Estado;
 import com.mikaely.backend.repository.EstadoRepository;
 
-import lombok.Data;
+import java.sql.Date;
+import java.util.List;
+//import lombok.Data;
 
 @Service
 public class EstadoService {
@@ -19,6 +18,7 @@ public class EstadoService {
     private EstadoRepository estadoRepository;
 
     public List<Estado> buscarTodos() {
+
         return estadoRepository.findAll();
     }
 
@@ -29,7 +29,7 @@ public class EstadoService {
     }
 
     public Estado alterar(Estado estado) {
-        estado.setDataAtualizacao((Data) new Date(0));
+        estado.setDataAtualizacao(new Date(0));
         return estadoRepository.saveAndFlush(estado);
     }
 
